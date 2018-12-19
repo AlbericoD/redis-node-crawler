@@ -38,7 +38,6 @@ const checkApi = arg =>
 const updateDB = args =>
   new Promise((resolve, reject) => {
     const { key, field, data } = args;
-    resolve(`${key} ${field} `);
     client.hset(key, field, JSON.stringify(data), (error, hashNumber) => {
       if (error) reject(error); // deve parar e ir para uma lista de nova tentativa
       resolve(hashNumber);
